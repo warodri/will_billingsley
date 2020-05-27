@@ -3,7 +3,6 @@
  */
 exports.Book = class {
     
-
     constructor(params) {
         /**
          * Generate a random ID
@@ -21,7 +20,6 @@ exports.Book = class {
          */
         this.params = params;
     }
-
 
     /**
      * Validates user data
@@ -53,10 +51,8 @@ exports.Book = class {
              * Validation success
              */
             return true;
-
         }
     }
-
 
     /**
      * Returns this class instance
@@ -64,7 +60,6 @@ exports.Book = class {
     getBook() {
         return this.params
     }
-
 
 }
 

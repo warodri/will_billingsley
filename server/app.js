@@ -27,6 +27,7 @@ const config = require('./config');
  * Get our storage-in-memory data
  */
 const bookData = require('./api/storage/book');
+const authorData = require('./api/storage/author');
 
 
 /**
@@ -88,6 +89,7 @@ app.use((req, res, next) => {
         req.API = config.ENDPOINT;        
         req.ENDPOINT = config.ENDPOINT;       
         req.bookData = bookData.books; 
+        req.authorData = authorData.author; 
         next();
     } catch (err) {
         console.log(err.message)

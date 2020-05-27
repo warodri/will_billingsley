@@ -15,9 +15,15 @@ router.post('/', Controller.add_new_book);
 
 
 /**
- * Update information about a abook by id
+ * Update information about a book by id
  */
-router.post('/:id', Controller.update_book);
+router.put('/:id', Controller.update_book);
+
+
+/**
+ * Delete book by id
+ */
+router.delete('/:id', Controller.delete_book);
 
 
 module.exports = router;

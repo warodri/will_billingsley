@@ -17,7 +17,13 @@ router.post('/', Controller.add_new_author);
 /**
  * Update information about an author by id
  */
-router.post('/:id', Controller.update_author);
+router.put('/:id', Controller.update_author);
+
+
+/**
+ * Delete author by id
+ */
+router.delete('/:id', Controller.delete_author);
 
 
 module.exports = router;
