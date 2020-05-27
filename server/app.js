@@ -23,6 +23,11 @@ const bodyParser = require('body-parser');
  */
 const config = require('./config');
 
+/**
+ * Get our storage-in-memory data
+ */
+const bookData = require('./api/storage/book');
+
 
 /**
  * Load the code used to run our routes
@@ -81,7 +86,8 @@ app.use((req, res, next) => {
     try {
         req.SERVER = config.SERVER;
         req.API = config.ENDPOINT;        
-        req.ENDPOINT = config.ENDPOINT;        
+        req.ENDPOINT = config.ENDPOINT;       
+        req.bookData = bookData.books; 
         next();
     } catch (err) {
         console.log(err.message)
