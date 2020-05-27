@@ -25,28 +25,12 @@ const config = require('./config');
 
 
 /**
- * Minify the output code to get less transfer
- */
-var minifyHTML = require('express-minify-html');
-app.use(minifyHTML({
-    override:      true,
-    exception_url: false,
-    htmlMinifier: {
-        removeComments:             true,
-        collapseWhitespace:         true,
-        collapseBooleanAttributes:  true,
-        removeAttributeQuotes:      true,
-        removeEmptyAttributes:      true,
-    }
-}));
-
-
-/**
  * Load the code used to run our routes
  */
-const indexRoutes = require('./api/route/index');
-const bookRoutes = require('./api/route/book');
+const authorsRoutes = require('./api/route/authors');
 const authorRoutes = require('./api/route/author');
+const booksRoutes = require('./api/route/books');
+const bookRoutes = require('./api/route/book');
 
 
 /**
@@ -90,12 +74,6 @@ app.use(express.static('./public'));
 
 
 /**
- * I'm using EJS for templates.
- */
-app.set('view engine', 'ejs');
-
-
-/**
  * Let's set some basic values to 
  * ALL the routes, using this middleware
  */
@@ -115,8 +93,9 @@ app.use((req, res, next) => {
 /**
  * Let's define our routes
  */
-app.use('/', indexRoutes);
 app.use('/book', bookRoutes);
+app.use('/books', booksRoutes);
+app.use('/authors', authorsRoutes);
 app.use('/author', authorRoutes);
 
 
