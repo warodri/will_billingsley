@@ -1,0 +1,52 @@
+
+
+<!--
+    THEST THE API
+-->
+<div class="container mt-4">
+
+    <!--
+        ADD TEST BOOK
+    -->
+    <button class="btn btn-primary m-2" (click)="addBook()">
+        Add Book
+    </button>
+
+    <!--
+        GET ALL BOOKS
+    -->
+    <button class="btn btn-primary m-2" (click)="getBooks()">
+        Get all books
+    </button>
+
+    <!--
+        CHANGE A BOOK'S TITLE
+        DELETE BOOK
+    -->
+    <div class="card m-2">
+        <div class="card-header">
+            <h5>
+                Update Book
+            </h5>
+        </div>
+        <div class="card-body">
+            <input type="text" class="form-control" [(ngModel)]="selectedBookId" placeholder="Enter a book ID" />                        
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-danger mr-2" (click)="deleteBook()">
+                Delete
+            </button>        
+            <button class="btn btn-primary mr-2" (click)="getBookById()">
+                Get this Book
+            </button>        
+            <button class="btn btn-primary" (click)="updateBook()">
+                Update this Book
+            </button>        
+        </div>
+    </div>
+
+    
+
+</div>
+
+<router-outlet></router-outlet>

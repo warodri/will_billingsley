@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "f84ad1cb-9ccd-43dd-87aa-bd9af7b926d9",
+		"name": "WILL",
+		"description": "Test for Will Billingsley",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add new book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Unlocking Android\",\n    \"isbn\": \"1933988673\",\n    \"pageCount\": 416,\n    \"publishedDate\": { \"$date\": \"2009-04-01T00:00:00.000-0700\" },\n    \"thumbnailUrl\": \"https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/ableson.jpg\",\n    \"shortDescription\": \"Unlocking Android: A Developer's Guide provides concise, hands-on instruction for the Android operating system and development tools. This book teaches important architectural concepts in a straightforward writing style and builds on this with practical and useful examples throughout.\",\n    \"longDescription\": \"Android is an open source mobile phone platform based on the Linux operating system and developed by the Open Handset Alliance, a consortium of over 30 hardware, software and telecom companies that focus on open standards for mobile devices. Led by search giant, Google, Android is designed to deliver a better and more open and cost effective mobile experience.    Unlocking Android: A Developer's Guide provides concise, hands-on instruction for the Android operating system and development tools. This book teaches important architectural concepts in a straightforward writing style and builds on this with practical and useful examples throughout. Based on his mobile development experience and his deep knowledge of the arcane Android technical documentation, the author conveys the know-how you need to develop practical applications that build upon or replace any of Androids features, however small.    Unlocking Android: A Developer's Guide prepares the reader to embrace the platform in easy-to-understand language and builds on this foundation with re-usable Java code examples. It is ideal for corporate and hobbyists alike who have an interest, or a mandate, to deliver software functionality for cell phones.    WHAT'S INSIDE:        * Android's place in the market      * Using the Eclipse environment for Android development      * The Intents - how and why they are used      * Application classes:            o Activity            o Service            o IntentReceiver       * User interface design      * Using the ContentProvider to manage data      * Persisting data with the SQLite database      * Networking examples      * Telephony applications      * Notification methods      * OpenGL, animation & multimedia      * Sample Applications  \",\n    \"status\": \"PUBLISH\",\n    \"authors\": [\"W. Frank Ableson\", \"Charlie Collins\", \"Robi Sen\"],\n    \"categories\": [\"Open Source\", \"Mobile\"]\n  }"
+				},
+				"url": {
+					"raw": "{{server}}/book",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all books",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{server}}/books",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Book",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\":\"This book was updated\"}"
+				},
+				"url": {
+					"raw": "{{server}}/book/1590590756444",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"book",
+						"1590590756444"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Book",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{server}}/book/1590591580564",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"book",
+						"1590591580564"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Book by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{server}}/book/159059250934",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"book",
+						"159059250934"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new author",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Dan Brown\"\n}"
+				},
+				"url": {
+					"raw": "{{server}}/author",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"author"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all authors",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{server}}/authors",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Author",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Dan Brown modified\"\n}"
+				},
+				"url": {
+					"raw": "{{server}}/author/1590594163976",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"author",
+						"1590594163976"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Author",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{server}}/author/1590594163976",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"author",
+						"1590594163976"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f1797bd3-c440-4940-a97a-b1c1d1819554",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a5fb8c32-00de-40e4-826c-79dd51f315c6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "60e0a81a-4634-42e1-af41-0736614f5f09",
+			"key": "server",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

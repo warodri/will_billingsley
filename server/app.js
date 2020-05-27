@@ -89,7 +89,7 @@ app.use((req, res, next) => {
         req.API = config.ENDPOINT;        
         req.ENDPOINT = config.ENDPOINT;       
         req.bookData = bookData.books; 
-        req.authorData = authorData.author; 
+        req.authorData = authorData.authors; 
         next();
     } catch (err) {
         console.log(err.message)
