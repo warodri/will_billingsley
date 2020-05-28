@@ -148,6 +148,9 @@ export class AddBookComponent implements OnInit {
         });
     }
 
+    /**
+     * Simply redirection to the home page
+     */
     goHome() {
         location.href = '/';
     }

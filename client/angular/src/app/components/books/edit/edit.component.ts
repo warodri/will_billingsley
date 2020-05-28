@@ -87,6 +87,9 @@ export class EditBookComponent implements OnInit {
         });
     }
 
+    /**
+     * Go to the server and get this Book by ID
+     */
     getBook() {
         this.route.params.subscribe(params => {
             const bookId = params.id;
@@ -97,6 +100,9 @@ export class EditBookComponent implements OnInit {
         });
     }
 
+    /**
+     * Once we get the book information, show on screen
+     */
     setFormValues() {
         this.form.controls.title.setValue( this.book.title );
         this.form.controls.isbn.setValue( this.book.isbn );
@@ -106,7 +112,10 @@ export class EditBookComponent implements OnInit {
         this.form.controls.shortDescription.setValue( this.book.shortDescription );
         this.form.controls.longDescription.setValue( this.book.longDescription );
         this.form.controls.status.setValue( this.book.status );
-
+        /**
+         * Arrays for selected authors and categories.
+         * This is shown as buttons on screen.
+         */
         this.arrSelectedAuthors = this.book.authors;
         this.arrSelectedCategories = this.book.categories;
     }
@@ -181,6 +190,9 @@ export class EditBookComponent implements OnInit {
         });
     }
 
+    /**
+     * Simply redirection to the home page
+     */
     goHome() {
         location.href = '/';
     }
