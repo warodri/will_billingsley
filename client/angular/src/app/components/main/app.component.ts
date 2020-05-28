@@ -1,44 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TestService } from 'src/app/services/test.service';
 import { Book } from 'src/app/models/book';
+import { Route, Router, ActivatedRoute } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
+import { HttpResponseBooks } from 'src/app/models/http-responses';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-    title = 'Books';
-
-    selectedBookId: string;
+    arrBooks: Array<Book> = [];
 
     constructor(
-        private testService: TestService
-    ) {}
-
-    addBook() {
-        this.testService.addBook();
+        private apiService: ApiService
+    ) {
     }
 
-    getBooks() {
-        this.testService.getAllBooks();
+    ngOnInit(): void {
+        this.loadBooks();
     }
 
-    getBookById() {
-        this.testService.getBook(this.selectedBookId);
+    loadBooks() {
+        this.apiService.getBooks().subscribe( (result: HttpResponseBooks) => {
+            this.arrBooks = result.books;
+        });
     }
 
-    updateBook() {
-        const book = new Book();
-        Object.assign(book, {
-            title: 'Book title modified'
-        })
-        this.testService.updateBook(this.selectedBookId, book);
+    deleteBook(book: Book) {
+        if (confirm(`Are you sure you want to remove ${ book.title }?`) === false) {
+            return;
+        }
     }
 
-    deleteBook() {
-        this.testService.deleteBook(this.selectedBookId);
+    editBook(book: Book) {
     }
+
+    viewBook(book: Book) {
+    }
+
 
 }

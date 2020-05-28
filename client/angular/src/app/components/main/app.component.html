@@ -1,52 +1,97 @@
 
-
-<!--
-    THEST THE API
--->
 <div class="container mt-4">
 
-    <!--
-        ADD TEST BOOK
-    -->
-    <button class="btn btn-primary m-2" (click)="addBook()">
-        Add Book
-    </button>
-
-    <!--
-        GET ALL BOOKS
-    -->
-    <button class="btn btn-primary m-2" (click)="getBooks()">
-        Get all books
-    </button>
-
-    <!--
-        CHANGE A BOOK'S TITLE
-        DELETE BOOK
-    -->
-    <div class="card m-2">
-        <div class="card-header">
-            <h5>
-                Update Book
-            </h5>
-        </div>
-        <div class="card-body">
-            <input type="text" class="form-control" [(ngModel)]="selectedBookId" placeholder="Enter a book ID" />                        
-        </div>
-        <div class="card-footer">
-            <button class="btn btn-danger mr-2" (click)="deleteBook()">
-                Delete
-            </button>        
-            <button class="btn btn-primary mr-2" (click)="getBookById()">
-                Get this Book
-            </button>        
-            <button class="btn btn-primary" (click)="updateBook()">
-                Update this Book
-            </button>        
+    <div class="d-flex row mt-4 mb-4">
+        <div class="col">
+            <a href="/book-add" class="btn btn-primary">
+                Add new Book
+            </a>
         </div>
     </div>
 
-    
+    <router-outlet></router-outlet>
+
+    <hr>
+
+    <!--
+        LIST OF ADDED BOOKS
+    -->
+
+    <div class="mt-4">
+        <h3>
+            List of books
+        </h3>
+        <div class="row d-flex justify-content-center mt-4">
+            
+            <div class="col-sm" style="min-width:18rem; height:750px;" *ngFor="let item of arrBooks">
+                <div class="card border-0 shadow m-2 h-100">
+                    <div class="card-header">
+                        <h5>
+                            {{ item.title }}
+                        </h5>
+                    </div>
+                    <div class="card-body" style="overflow-y:auto">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Title</td>
+                                    <td>{{ item.title }}</td>
+                                </tr>
+                                <tr>
+                                    <td>ISBN</td>
+                                    <td>{{ item.isbn }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Pages</td>
+                                    <td>{{ item.pageCount }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Published</td>
+                                    <td>{{ item.publishedDate | date }}</td>
+                                </tr>
+                                <tr *ngIf="item.thumbnailUrl.startsWith('http')">
+                                    <td>Thumbnail</td>
+                                    <td><img [attr.src]="item.thumbnailUrl" style="max-height:100px; max-width:100px;" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Short description</td>
+                                    <td>{{ item.shortDescription }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Long description</td>
+                                    <td>{{ item.longDescription }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Status</td>
+                                    <td>{{ item.status }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Authors</td>
+                                    <td>{{ item.authors }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Categories</td>
+                                    <td>{{ item.categories }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-danger btn-sm m-2" (click)="deleteBook(item)">
+                            Delete
+                        </button>
+                        <button class="btn btn-primary btn-sm m-2" (click)="editBook(item)">
+                            Edit
+                        </button>
+                        <button class="btn btn-primary btn-sm m-2" (click)="viewBook(item)">
+                            View
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 </div>
 
-<router-outlet></router-outlet>

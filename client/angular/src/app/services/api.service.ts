@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { catchError, tap, map } from 'rxjs/operators';
 import { Book } from '../models/book';
 import { Author } from '../models/author';
+import { HttpResponseAuthors, HttpResponseBooks } from '../models/http-responses';
 
 /**
  * Default http options to send for most of our requests
@@ -47,14 +48,8 @@ export class ApiService {
     /**
      * Get all books
      */
-    getBooks(): Observable<Book[]> {
-        return this.http.get<Book[]>(apiUrl + '/books')
-            .pipe(
-                tap(heroes => {
-                    console.log('fetched books');
-                }),
-                catchError(this.handleError('getBooks', []))
-            );
+    getBooks(): Observable<HttpResponseBooks> {
+        return this.http.get<HttpResponseBooks>(apiUrl + '/books');
     }
 
     /**
@@ -108,5 +103,12 @@ export class ApiService {
         );
     }
 
+
+    /**
+     * Get all authors
+     */
+    getAuthors(): Observable<HttpResponseAuthors> {
+        return this.http.get<HttpResponseAuthors>(apiUrl + '/authors');
+    }
 
 }

@@ -3,7 +3,10 @@ export class Book {
     title: string;
     isbn: string;
     pageCount: number;
-    publishedDate: string;
+    publishedDate: string | Date;
+    thumbnailUrl: string;
+    shortDescription: string;
+    longDescription?: string;
     status: string;
     authors: Array<string>;
     categories: Array<string>;
