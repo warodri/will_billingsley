@@ -22,3 +22,12 @@ This is a demo application for WILL Billingsley.
   - Run "npm i" to download all dependencies 
   - Run "ng server" to start the client. Open Chrome or similar and navigate to: http://localhost:4200 to start
 
+### Postman Scripts
+
+In case you use Postman, you can download a set of requests for:
+  - Adding, updating, removing and fetching books
+  - Adding, updating, removing and fetching authors
+
+Go to the "server" folder and import the file "server.postman_collection.json" to Postman
+
+
