@@ -4,12 +4,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { Author } from 'src/app/models/author';
 import { HttpResponseAuthors } from 'src/app/models/http-responses';
 import { Book } from 'src/app/models/book';
-
-/**
- * Simple constants to prevent hardcoding strings
- */
-const PUBLISH = 'PUBLISH';
-const UNPUBLISH = 'UNPUBLISH';
+import { PUBLISH, UNPUBLISH } from '../../common/data';
 
 @Component({
     selector: 'app-add-book',
@@ -151,6 +146,10 @@ export class AddBookComponent implements OnInit {
         this.apiService.addBook(book).subscribe( (result) => {
             location.href = '/';
         });
+    }
+
+    goHome() {
+        location.href = '/';
     }
 
 }

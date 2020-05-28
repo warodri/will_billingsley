@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './components/main/app.component';
-import { ViewBookComponent } from './components/books/view/view.component';
 import { AddBookComponent } from './components/books/add/add.component';
 import { EditBookComponent } from './components/books/edit/edit.component';
 
@@ -18,11 +17,6 @@ const routes: Routes = [
         data: { title: 'Add new Book' }
     },
     {
-        path: 'book-detail/:id',
-        component: ViewBookComponent,
-        data: { title: 'View Book Details' }
-    },
-    {
         path: 'book-edit/:id',
         component: EditBookComponent,
         data: { title: 'Edit Book' }
@@ -32,7 +26,6 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         AppComponent,
-        ViewBookComponent,
         AddBookComponent,
         EditBookComponent
     ],

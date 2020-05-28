@@ -8,3 +8,6 @@ export class HttpResponseAuthors {
 export class HttpResponseBooks {
     books: Array<Book>;
 }
+export class HttpResponseBook {
+    book: Book;
+}

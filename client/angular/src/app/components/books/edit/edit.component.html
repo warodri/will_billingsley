@@ -1,3 +1,142 @@
-<h1>
-    Edit Book
-</h1>
+<div class="container mb-4 d-flex justify-content-center">
+
+    <!--
+        BOX FOR EDITING EXISTING BOOK
+    -->
+    <div class="card shadow">
+        <!--
+            Title
+        -->
+        <div class="card-header" *ngIf="book">
+            {{ book.title }}
+        </div>
+        <div class="card-body">
+            <!--
+                Main form
+            -->
+            <table class="table" [formGroup]="form">
+                <tbody>
+                    <tr>
+                        <td class="border-top-0">
+                            Title *
+                        </td>
+                        <td class="border-top-0">
+                            <input type="text" class="form-control" formControlName="title" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ISBN *
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" formControlName="isbn" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Total pages *
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" formControlName="pageCount" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Published Date *
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" formControlName="publishedDate" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Thumbnail URL *
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" formControlName="thumbnailUrl" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Short description *
+                        </td>
+                        <td>
+                            <textarea class="form-control" formControlName="shortDescription"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Long description
+                        </td>
+                        <td>
+                            <textarea class="form-control" formControlName="longDescription"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Status *
+                        </td>
+                        <td>
+                            <select class="form-control" formControlName="status">
+                                <option [value]="PUBLISH">Publish</option>
+                                <option [value]="UNPUBLISH">Unpublish</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Authors *
+                        </td>
+                        <td>
+                            <select class="form-control" (change)="authorSelected($event)">
+                                <option value="">[ Select ]</option>
+                                <option *ngFor="let a of arrAuthors" [value]="a.name">
+                                    {{ a.name }}
+                                </option>
+                            </select>
+                            <button *ngFor="let item of arrSelectedAuthors" class="btn btn-secondary btn-sm m-2"
+                                (click)="removeAuthor(item)">
+                                {{ item }}
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Categories *
+                        </td>
+                        <td>
+                            <select class="form-control" (change)="categorySelected($event)">
+                                <option value="">[ Select ]</option>
+                                <option value="Open Source">Open Source</option>
+                                <option value="Mobile">Mobile</option>
+                                <option value="Java">Java</option>
+                                <option value="Software Engineering">Software Engineering</option>
+                                <option value="Internet">Internet</option>
+                                <option value="Web Development">Web Development</option>
+                            </select>
+                            <button *ngFor="let item of arrSelectedCategories" class="btn btn-secondary btn-sm m-2"
+                                (click)="removeCategory(item)">
+                                {{ item }}
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer text-center">
+            <!--
+                Button for going back home
+            -->
+            <button class="btn btn-secondary mr-2" (click)="goHome()">
+                Back
+            </button>
+            <!--
+                button for saving this data
+            -->
+            <button class="btn btn-primary" (click)="saveBook()">
+                Update
+            </button>
+        </div>
+    </div>
+
+</div>

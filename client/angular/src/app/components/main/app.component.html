@@ -1,14 +1,10 @@
 
 <div class="container mt-4">
 
-    <div class="d-flex row mt-4 mb-4">
-        <div class="col">
-            <a href="/book-add" class="btn btn-primary">
-                Add new Book
-            </a>
-        </div>
-    </div>
 
+    <!--
+        SHOW ALL THE COMPONENTS HERE
+    -->
     <router-outlet></router-outlet>
 
     <hr>
@@ -19,23 +15,37 @@
 
     <div class="mt-4">
         <h3>
-            List of books
+            Existing books
         </h3>
+        <div class="mt-4 mb-4">
+            <a href="/book-add" class="btn btn-primary">
+                Add new Book
+            </a>
+        </div>
         <div class="row d-flex justify-content-center mt-4">
             
+            <!--
+                ALL THE CARDS WITH EXISTING BOOKS HERE
+            -->
             <div class="col-sm" style="min-width:18rem; height:750px;" *ngFor="let item of arrBooks">
                 <div class="card border-0 shadow m-2 h-100">
+                    <!--
+                        Book title
+                    -->
                     <div class="card-header">
                         <h5>
                             {{ item.title }}
                         </h5>
                     </div>
+                    <!--
+                        Book content
+                    -->
                     <div class="card-body" style="overflow-y:auto">
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <td>Title</td>
-                                    <td>{{ item.title }}</td>
+                                    <td class="border-top-0">Title</td>
+                                    <td class="border-top-0">{{ item.title }}</td>
                                 </tr>
                                 <tr>
                                     <td>ISBN</td>
@@ -76,15 +86,16 @@
                             </tbody>
                         </table>
                     </div>
+                    <!--
+                        Book footer with 
+                        action buttons
+                    -->
                     <div class="card-footer text-center">
                         <button class="btn btn-danger btn-sm m-2" (click)="deleteBook(item)">
                             Delete
                         </button>
                         <button class="btn btn-primary btn-sm m-2" (click)="editBook(item)">
                             Edit
-                        </button>
-                        <button class="btn btn-primary btn-sm m-2" (click)="viewBook(item)">
-                            View
                         </button>
                     </div>
                 </div>

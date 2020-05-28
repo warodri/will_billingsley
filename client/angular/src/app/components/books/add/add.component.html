@@ -17,10 +17,10 @@
             <table class="table" [formGroup]="form">
                 <tbody>
                     <tr>
-                        <td>
+                        <td class="border-top-0">
                             Title *
                         </td>
-                        <td>
+                        <td class="border-top-0">
                             <input type="text" class="form-control" formControlName="title" />
                         </td>
                     </tr>
@@ -124,6 +124,12 @@
             </table>
         </div>
         <div class="card-footer text-center">
+            <!--
+                Button for going back home
+            -->
+            <button class="btn btn-secondary mr-2" (click)="goHome()">
+                Back
+            </button>    
             <!--
                 button for saving this data
             -->
