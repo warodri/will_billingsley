@@ -1,6 +1,6 @@
 # Test App
 
-This is a demo application for WILL Billingsley.
+This is a demo application.
 
 #### Some notes:
   - The SERVER was developed using NODE JS
